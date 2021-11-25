@@ -1,0 +1,14 @@
+- links:
+  ~/.zshrc zshrc
+  ~/.config/nvim:
+    create: true
+    path: nvim
+  ~/.tmux tmux
+  ~/.tmux.conf tmux.conf
+  ~/.gitconfig gitconfig
+  ~/.gitignore_global gitignore_global
+
+- shell:
+  - ./install_deps.sh
+  - chsh -s $(which zsh)
+

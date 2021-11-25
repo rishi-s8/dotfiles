@@ -22,6 +22,9 @@ echo "Found ${PKG_MANAGER} as package manager."
 # Install wget
 ${PKG_MANAGER} install wget
 
+# Install zsh
+${PKG_MANAGER} install zsh
+
 # Antibody plugin manager for shell
 curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
 
