@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -eou pipefail
 set -x
 
 TMUX_VERSION=3.2a
@@ -9,7 +10,7 @@ PKG_MANAGER=
 PKG_MGR="apt yum brew"
 for pkg in $PKG_MGR;
 do
-  command -v $pkg &>/dev/null
+  command -v $pkg &>/dev/null || true
   if [[ $? -eq 0 ]]; then
     PKG_MANAGER=$pkg
   fi
@@ -101,7 +102,7 @@ sudo pip3 install neovim &>/dev/null
 git clone https://github.com/BurntSushi/ripgrep &>/dev/null
 cd ripgrep
 cargo build --release &>/dev/null
-rm -rf /usr/local/bin/rg
+sudo rm -rf /usr/local/bin/rg
 sudo mv ./target/release/rg /usr/local/bin/
 cd .. && rm -rf ripgrep
 

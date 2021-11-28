@@ -20,5 +20,6 @@
     -
       command: ./install.deps
       stdin: true
-      stdout: true
       stderr: true
+      description: "Installing necessary dependencies"
+    - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
