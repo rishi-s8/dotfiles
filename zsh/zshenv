@@ -48,8 +48,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Path to clangd installed by Coc
-PATH=$PATH:~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/
+PATH=$PATH:~/.cargo/bin/:~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/
 
 # Utility that prints out lines that are common among $# files.
 intersect() {
