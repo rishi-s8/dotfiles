@@ -1,14 +1,24 @@
-- links:
-  ~/.zshrc zshrc
-  ~/.config/nvim:
-    create: true
-    path: nvim
-  ~/.tmux tmux
-  ~/.tmux.conf tmux.conf
-  ~/.gitconfig gitconfig
-  ~/.gitignore_global gitignore_global
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.p10k.zsh: zsh/p10k.zsh
+    ~/.zshrc_alias: zsh/zshrc_alias
+    ~/.config/nvim:
+      create: true
+      relink: true
+      path: nvim
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux.conf
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
 
 - shell:
-  - ./install_deps.sh
-  - chsh -s $(which zsh)
-
+    -
+      command: ./install.deps
+      stdin: true
+      stdout: true
+      stderr: true

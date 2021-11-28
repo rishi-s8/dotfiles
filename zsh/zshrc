@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Plugins {{{
 # ==============================================================================
 
@@ -17,7 +24,6 @@
     antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
     antibody bundle robbyrussell/oh-my-zsh path:plugins/git
     antibody bundle robbyrussell/oh-my-zsh path:plugins/git-flow
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/gpg-agent
     antibody bundle robbyrussell/oh-my-zsh path:plugins/gulp
     antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
     antibody bundle robbyrussell/oh-my-zsh path:plugins/jsontools
@@ -26,25 +32,25 @@
     antibody bundle robbyrussell/oh-my-zsh path:plugins/npm
     antibody bundle robbyrussell/oh-my-zsh path:plugins/pass
     antibody bundle robbyrussell/oh-my-zsh path:plugins/rsync
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
+    # antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
     antibody bundle robbyrussell/oh-my-zsh path:plugins/z
-    antibody bundle romkatv/powerlevel10k
 
     # Other bundles
-    antibody bundle sampson-chen/sack
-    #antibody bundle jessarcher/zsh-artisan
-    antibody bundle /home/jess/.oh-my-zsh/custom/plugins/artisan
     antibody bundle zsh-users/zsh-autosuggestions
 
     # This needs to be the last bundle.
     antibody bundle zsh-users/zsh-syntax-highlighting
 
     # Load the theme.
-    # antibody bundle robbyrussell/oh-my-zsh path:themes/robbyrussell.zsh-theme
-    antibody bundle dracula/zsh
+    antibody bundle romkatv/powerlevel10k
 
 # }}}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source .zshrc_alias
+source .zshenv
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

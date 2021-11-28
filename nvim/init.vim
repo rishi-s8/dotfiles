@@ -130,3 +130,6 @@ elseif has("mac")
 let g:python_host_prog =  '/usr/local/bin/python3'
 let g:python3_host_prog =  '/usr/local/bin/python3'
 endif
+
+" Theme configuration
+colorscheme base16-atelier-savanna
