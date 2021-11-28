@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -eou pipefail
 set -x
 
 TMUX_VERSION=3.2a
