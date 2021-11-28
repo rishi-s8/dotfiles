@@ -17,9 +17,13 @@
     ~/.gitignore_global: gitignore_global
 
 - shell:
+    - [git submodule update --init --recursive, Installing submodules]
     -
       command: ./install.deps
       stdin: true
       stderr: true
       description: "Installing necessary dependencies"
     - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
+
+- create:
+  - ~/.config/nvim/undo-dir
