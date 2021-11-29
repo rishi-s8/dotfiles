@@ -107,3 +107,17 @@ cd .. && rm -rf ripgrep
 
 # Install exa
 cargo install exa &>/dev/null
+
+# Install re2c
+wget https://github.com/skvadrik/re2c/releases/download/2.2/re2c-2.2.tar.xz &>/dev/null
+tar xvf re2c-2.2.tar.xz &>/dev/null
+rm -rf re2c-2.2.tar.xz && cd re2c-2.2/
+./configure &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
+cd .. && rm -rf re2c-2.2
+
+# Install Ninja
+git clone git://github.com/ninja-build/ninja.git &>/dev/null
+cd ninja && git checkout release &>/dev/null
+mkdir build && cd build
+cmake .. &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
+cd ../../ && rm -rf ninja
