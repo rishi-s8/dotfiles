@@ -22,6 +22,7 @@ fi
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
     antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
     antibody bundle robbyrussell/oh-my-zsh path:plugins/z
+    antibody bundle ogham/exa completions/zsh
 
     # Other bundles
     antibody bundle zsh-users/zsh-autosuggestions
