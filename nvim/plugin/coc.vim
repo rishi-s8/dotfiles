@@ -3,10 +3,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " General settings
 
 let g:coc_global_extensions = [
-      \ 'coc-json', 'coc-git', 'coc-yank', 'coc-thrift-syntax-support',
-      \ 'coc-sh', 'coc-eslint', 'coc-rust-analyzer', 'coc-rls', 'coc-pyright',
-      \ 'coc-go', 'coc-cmake', 'coc-clangd', 'coc-clang-format-style-options',
-      \ 'coc-lightbulb', 'coc-prettier', 'coc-snippets', 'coc-pairs']
+      \ 'coc-clang-format-style-options', 'coc-clangd', 'coc-cmake', 'coc-eslint',
+      \ 'coc-git', 'coc-go', 'coc-json', 'coc-lightbulb', 'coc-pairs', 'coc-prettier',
+      \ 'coc-pyright', 'coc-rls', 'coc-rust-analyzer', 'coc-sh', 'coc-snippets',
+      \ 'coc-thrift-syntax-support', 'coc-yank']
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
