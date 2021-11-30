@@ -1,5 +1,20 @@
 " Personal configuration file of Ankur Sharma (inbox.ankur@outlook.com)
 
+" -----------------
+" Language settings
+" -----------------
+
+" Disable loading unnecessary providers
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_python_provider = 0
+
+if has("macunix")
+  let g:python3_host_prog =  '/usr/local/bin/python3'
+elseif has("unix")
+  let g:python3_host_prog =  '/usr/bin/python3'
+endif
+
 " ----------------
 " General settings
 " ----------------
@@ -116,20 +131,6 @@ source ~/.config/nvim/plugin/vim-base16-lightline.vim
 
 call plug#end()
 doautocmd User PlugLoaded
-
-" -----------------
-" Language settings
-" -----------------
-
-let g:perl_host_prog = '/usr/bin/perl'
-
-if has("linux")
-let g:python_host_prog =  '/usr/bin/python3'
-let g:python3_host_prog =  '/usr/bin/python3'
-elseif has("mac")
-let g:python_host_prog =  '/usr/local/bin/python3'
-let g:python3_host_prog =  '/usr/local/bin/python3'
-endif
 
 " Theme configuration
 colorscheme base16-atelier-savanna

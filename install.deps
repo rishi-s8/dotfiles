@@ -90,8 +90,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 else
 	git clone https://github.com/neovim/neovim &>/dev/null
 	cd neovim && git checkout v0.5.1 &>/dev/null
-	make -j8 &>/dev/null && sudo make install &>/dev/null
-  cd .. && rm -rf neovim
+	make -j8 CMAKE_BUILD_TYPE=Release &>/dev/null && sudo make install &>/dev/null
+  cd .. && sudo rm -rf neovim
 fi
 
 sudo npm install -g neovim &>/dev/null
