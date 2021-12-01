@@ -35,8 +35,8 @@ fi
 
 # }}}
 
-source .zshrc_alias
-source .zshenv
+source ~/.zshrc_alias
+source ~/.zshenv
 
 # Add machine specific settings in separate file.
 if [[ -e .zsh_local ]]; then
