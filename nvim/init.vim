@@ -120,6 +120,7 @@ source ~/.config/nvim/plugin/vim-nerdtree-syntax-highlight.vim
 source ~/.config/nvim/plugin/vim-devicons.vim
 source ~/.config/nvim/plugin/supertab.vim
 source ~/.config/nvim/plugin/vimrooter.vim
+source ~/.config/nvim/plugin/riggrep.vim
 source ~/.config/nvim/plugin/fzf.vim
 source ~/.config/nvim/plugin/vim-expand-region.vim
 source ~/.config/nvim/plugin/vim-gitgutter.vim
