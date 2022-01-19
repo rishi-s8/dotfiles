@@ -75,4 +75,4 @@ nnoremap <leader>g :RG<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
 nnoremap <silent> <leader>f :Files<cr>
-
+nnoremap <leader>c :Colors<CR>
