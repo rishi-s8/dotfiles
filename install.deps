@@ -9,9 +9,10 @@ PKG_MANAGER=
 PKG_MGR="apt yum brew"
 for pkg in $PKG_MGR;
 do
-  command -v $pkg &>/dev/null || true
+  command -v $pkg &>/dev/null
   if [[ $? -eq 0 ]]; then
     PKG_MANAGER=$pkg
+    break
   fi
 done
 
