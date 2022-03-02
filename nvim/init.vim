@@ -123,6 +123,7 @@ source ~/.config/nvim/plugin/vimrooter.vim
 source ~/.config/nvim/plugin/riggrep.vim
 source ~/.config/nvim/plugin/fzf.vim
 source ~/.config/nvim/plugin/vim-expand-region.vim
+source ~/.config/nvim/plugin/vim-fugitive.vim
 source ~/.config/nvim/plugin/vim-gitgutter.vim
 source ~/.config/nvim/plugin/nerdtree-git-plugin.vim
 source ~/.config/nvim/plugin/blamer.vim

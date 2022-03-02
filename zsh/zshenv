@@ -7,7 +7,7 @@ export LANGUAGE="en_US.UTF-8"
 export EDITOR='nvim'
 
 # History
-HISTFILE=~/.zsh_history
+HISTFILE=${HOME}/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
@@ -39,10 +39,10 @@ bindkey "^a" beginning-of-line
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^F" history-incremental-pattern-search-forward
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ${HOME}/.fzf.zsh ] && source ${HOME}/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ${HOME}/.p10k.zsh.
+[[ ! -f ${HOME}/.p10k.zsh ]] || source ${HOME}/.p10k.zsh
 
 # Loading NVM is slow, so try installing node and npm without NVM.
 if [[ `uname` != "Darwin" ]]; then
@@ -51,7 +51,7 @@ if [[ `uname` != "Darwin" ]]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-PATH=$PATH:~/.cargo/bin/:~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/
+PATH=$PATH:${HOME}/.cargo/bin/:${HOME}/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/
 
 # Utility that prints out lines that are common among $# files.
 intersect() {

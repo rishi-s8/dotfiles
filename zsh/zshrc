@@ -39,6 +39,10 @@ source ~/.zshrc_alias
 source ~/.zshenv
 
 # Add machine specific settings in separate file.
-if [[ -e .zsh_local ]]; then
-  source .zsh_local
+if [[ -e ~/.zsh_local ]]; then
+  source ~/.zsh_local
 fi
+
+export PATH=$HOME/.toolbox/bin:$PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

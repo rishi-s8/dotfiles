@@ -237,15 +237,8 @@
     .node-version
     .python-version
     .go-version
-    .ruby-version
-    .lua-version
-    .java-version
-    .perl-version
-    .php-version
     .tool-version
     .shorten_folder_marker
-    .svn
-    .terraform
     CVS
     Cargo.toml
     composer.json
@@ -264,7 +257,7 @@
   # This moves the truncation point to the right (positive offset) or to the left (negative offset)
   # relative to the marker. Plain "first" and "last" are equivalent to "first:0" and "last:0"
   # respectively.
-  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=false
+  typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=true
   # Don't shorten this many last directory segments. They are anchors.
   typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
   # Shorten directory if it's longer than this even if there is space for it. The value can
@@ -272,7 +265,7 @@
   # directory will be shortened only when prompt doesn't fit or when other parameters demand it
   # (see POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS and POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS_PCT below).
   # If set to `0`, directory will always be shortened to its minimum length.
-  typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
+  typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=3
   # When `dir` segment is on the last prompt line, try to shorten it enough to leave at least this
   # many columns for typing commands.
   typeset -g POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS=40
