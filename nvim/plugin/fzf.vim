@@ -19,7 +19,7 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND="rg --files"
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -42,7 +42,6 @@ let g:fzf_colors =
 "Get Files
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-
 
 " Get text in files with Rg
 command! -bang -nargs=* Rg
@@ -75,5 +74,5 @@ map <leader>b :Buffers<CR>
 nnoremap <leader>g :RG<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
-nnoremap <silent> <leader>f :FZF<cr>
-
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <leader>c :Colors<CR>

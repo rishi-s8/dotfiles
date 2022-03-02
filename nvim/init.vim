@@ -135,4 +135,4 @@ call plug#end()
 doautocmd User PlugLoaded
 
 " Theme configuration
-colorscheme base16-atelier-savanna
+colorscheme base16-solarized-dark
