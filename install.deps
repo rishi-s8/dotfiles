@@ -117,7 +117,7 @@ rm -rf re2c-2.2.tar.xz && cd re2c-2.2/
 cd .. && rm -rf re2c-2.2
 
 # Install Ninja
-git clone git://github.com/ninja-build/ninja.git &>/dev/null
+git clone ssh://git@github.com/ninja-build/ninja.git &>/dev/null
 cd ninja && git checkout release &>/dev/null
 mkdir build && cd build
 cmake .. &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
