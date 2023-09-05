@@ -1,6 +1,6 @@
 [user]
-	name = Ankur Sharma
-  email = ankurz@amazon.de
+	name = Rishi Sharma
+	email = rishi.sharma@epfl.ch
 [core]
   editor = nvim
   quotepath = false

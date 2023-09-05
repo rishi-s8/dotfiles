@@ -66,16 +66,16 @@ map gf :edit <cfile><cr>
 inoremap jk <ESC>
 
 " No arrow keys --- force yourself to use the home row
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 
 " Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+" nnoremap <left> :bp<CR>
+" nnoremap <right> :bn<CR>
 
 " Expand and shrink selected region in visual mode
 vmap v <Plug>(expand_region_expand)
@@ -115,6 +115,8 @@ source ~/.config/nvim/plugin/vim-matchup.vim
 source ~/.config/nvim/plugin/nerdcommenter.vim
 source ~/.config/nvim/plugin/nerdtree.vim
 source ~/.config/nvim/plugin/coc.vim
+source ~/.config/nvim/plugin/copilot.vim
+source ~/.config/nvim/plugin/vista.vim
 source ~/.config/nvim/plugin/vim-tmux-navigator.vim
 source ~/.config/nvim/plugin/vim-nerdtree-syntax-highlight.vim
 source ~/.config/nvim/plugin/vim-devicons.vim

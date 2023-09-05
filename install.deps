@@ -31,7 +31,7 @@ echo "Found ${PKG_MANAGER} as package manager."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash &>/dev/null
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &>/dev/null
-nvm install 16.13.0 &>/dev/null
+nvm install 20.6.0 &>/dev/null
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   brew install rust wget zsh xsel python ipython &>/dev/null
@@ -99,12 +99,13 @@ sudo npm install -g neovim &>/dev/null
 sudo pip3 install neovim &>/dev/null
 
 # Install ripgrep
-git clone https://github.com/BurntSushi/ripgrep &>/dev/null
-cd ripgrep
-cargo build --release &>/dev/null
-sudo rm -rf /usr/local/bin/rg
-sudo mv ./target/release/rg /usr/local/bin/
-cd .. && rm -rf ripgrep
+brew install ripgrep &>/dev/null
+# git clone https://github.com/BurntSushi/ripgrep &>/dev/null
+# cd ripgrep
+# cargo build --release &>/dev/null
+# sudo rm -rf /usr/local/bin/rg
+# sudo mv ./target/release/rg /usr/local/bin/
+# cd .. && rm -rf ripgrep
 
 # Install exa
 cargo install exa &>/dev/null
@@ -122,3 +123,7 @@ cd ninja && git checkout release &>/dev/null
 mkdir build && cd build
 cmake .. &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
 cd ../../ && rm -rf ninja
+
+# Install universal-tags
+brew tap universal-ctags/universal-ctags &>/dev/null
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
