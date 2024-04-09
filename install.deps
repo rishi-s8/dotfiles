@@ -125,5 +125,9 @@ cmake .. &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
 cd ../../ && rm -rf ninja
 
 # Install universal-tags
-brew tap universal-ctags/universal-ctags &>/dev/null
-brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  brew tap universal-ctags/universal-ctags &>/dev/null
+  brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
+else
+  sudo apt-get install -y universal-ctags
+fi
