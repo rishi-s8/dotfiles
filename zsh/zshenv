@@ -78,3 +78,84 @@ fndel () {
 pfind () {
     ps aux | grep $1
 }
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "~/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Multi SSH Launcher Script for iTerm Mac
+
+function tlaunch {
+  for machine in "$@"; do
+    /usr/bin/osascript <<-EOF
+      tell application "iTerm"
+        tell current window
+          create tab with default profile
+        end tell
+        tell current tab of current window
+          set _new_session to last item of sessions
+        end tell
+        tell _new_session
+          select
+          write text "ssh $machine"
+        end tell
+      end tell
+EOF
+  done
+}
+
+function hlaunch {
+  for machine in "$@"; do
+    /usr/bin/osascript <<-EOF
+      tell application "iTerm"
+
+        tell current session of current window
+          split horizontally with default profile
+        end tell
+
+        tell current tab of current window
+          set _new_session to last item of sessions
+        end tell
+
+        tell _new_session
+          select
+          write text "ssh $machine"
+        end tell
+      end tell
+EOF
+  done
+}
+
+function vlaunch {
+  for machine in "$@"; do
+    /usr/bin/osascript <<-EOF
+      tell application "iTerm"
+
+        tell current session of current window
+          split vertically with default profile
+        end tell
+
+        tell current tab of current window
+          set _new_session to last item of sessions
+        end tell
+
+        tell _new_session
+          select
+          write text "ssh $machine"
+        end tell
+      end tell
+EOF
+  done
+}
