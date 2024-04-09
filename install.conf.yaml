@@ -7,10 +7,10 @@
     ~/.zshenv: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zshrc_alias: zsh/zshrc_alias
-    ~/.config/nvim:
-      create: true
-      relink: true
-      path: nvim
+    # ~/.config/nvim:
+    #   create: true
+    #   relink: true
+    #   path: nvim
     ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
     ~/.gitconfig: gitconfig
@@ -23,7 +23,7 @@
       stdin: true
       stderr: true
       description: "Installing necessary dependencies"
-    - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
+    # - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
 
 - create:
   - ~/.config/nvim/undo-dir

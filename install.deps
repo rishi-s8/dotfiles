@@ -85,18 +85,18 @@ else
   cd .. && rm -rf cmake-${CMAKE_VERSION}
 fi
 
-# Install neovim
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  brew install neovim &>/dev/null
-else
-	git clone https://github.com/neovim/neovim &>/dev/null
-	cd neovim && git checkout v0.5.1 &>/dev/null
-	make -j8 CMAKE_BUILD_TYPE=Release &>/dev/null && sudo make install &>/dev/null
-  cd .. && sudo rm -rf neovim
-fi
+# # Install neovim
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   brew install neovim &>/dev/null
+# else
+# 	git clone https://github.com/neovim/neovim &>/dev/null
+# 	cd neovim && git checkout v0.5.1 &>/dev/null
+# 	make -j8 CMAKE_BUILD_TYPE=Release &>/dev/null && sudo make install &>/dev/null
+#   cd .. && sudo rm -rf neovim
+# fi
 
-sudo npm install -g neovim &>/dev/null
-sudo pip3 install neovim &>/dev/null
+# sudo npm install -g neovim &>/dev/null
+# sudo pip3 install neovim &>/dev/null
 
 # Install ripgrep
 brew install ripgrep &>/dev/null
