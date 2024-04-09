@@ -124,10 +124,17 @@ mkdir build && cd build
 cmake .. &>/dev/null && make -j8 &>/dev/null && sudo make install &>/dev/null
 cd ../../ && rm -rf ninja
 
-# Install universal-tags
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  brew tap universal-ctags/universal-ctags &>/dev/null
-  brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
-else
-  sudo apt-get install -y universal-ctags
-fi
+# # Install universal-tags
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   brew tap universal-ctags/universal-ctags &>/dev/null
+#   brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
+# else
+#   git clone https://github.com/universal-ctags/ctags.git
+#   cd ctags
+#   chmod a+x autogen.sh
+#   chmod a+x configure.sh
+#   ./autogen.sh
+#   ./configure --prefix=/where/you/want # defaults to /usr/local 
+#   make
+#   make install
+# fi
