@@ -99,16 +99,21 @@ fi
 # sudo pip3 install neovim &>/dev/null
 
 # Install ripgrep
-brew install ripgrep &>/dev/null
-# git clone https://github.com/BurntSushi/ripgrep &>/dev/null
-# cd ripgrep
-# cargo build --release &>/dev/null
-# sudo rm -rf /usr/local/bin/rg
-# sudo mv ./target/release/rg /usr/local/bin/
-# cd .. && rm -rf ripgrep
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  brew install ripgrep &>/dev/null
+else
+  sudo apt-get update &>/dev/null
+  sudo apt-get install -y ripgrep &>/dev/null
+fi
 
 # Install exa
-cargo install exa &>/dev/null
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  cargo install exa &>/dev/null
+else
+  sudo apt-get update &>/dev/null
+  sudo apt-get install -y exa &>/dev/null
+fi
+
 
 # Install re2c
 wget https://github.com/skvadrik/re2c/releases/download/2.2/re2c-2.2.tar.xz &>/dev/null
