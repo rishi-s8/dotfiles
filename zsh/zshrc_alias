@@ -14,3 +14,8 @@ alias diff="colordiff -uNrw"
 alias zshconfig="nvim ~/.zshrc"
 alias nvim_config="n ~/.config/nvim/init.vim"
 alias grep="$(whence -p grep) --colour=auto $@"
+
+alias rl="runai list"
+alias rd="runai describe job"
+alias rdel="runai delete job"
+alias kpf="kubectl port-forward"

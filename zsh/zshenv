@@ -159,3 +159,5 @@ function vlaunch {
 EOF
   done
 }
+
+export KUBECONFIG=$HOME/rcp-kubeconfig

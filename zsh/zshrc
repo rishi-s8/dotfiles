@@ -1,3 +1,7 @@
+export PATH=/Users/risharma/.nvm/versions/node/v20.6.0/bin:/Users/risharma/.toolbox/bin:~/miniconda3/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:~/miniconda3/bin:/Applications/iTerm.app/Contents/Resources/utilities:/Users/risharma/.cargo/bin/:/Users/risharma/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/:/Users/risharma/.cargo/bin/:/Users/risharma/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/:/opt/homebrew/bin:/opt/homebrew/bin
+
+source ~/.antidote/antidote.zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,29 +13,28 @@ fi
 # ==============================================================================
 
     # Load the Antibody plugin manager for zsh.
-    source <(antibody init)
+    source <(antidote init)
 
     # Setup required env var for oh-my-zsh plugins
-    export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+    export ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
-    antibody bundle robbyrussell/oh-my-zsh
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/cp
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/git
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmux
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
-    antibody bundle robbyrussell/oh-my-zsh path:plugins/z
-    antibody bundle ogham/exa completions/zsh
+    antidote bundle robbyrussell/oh-my-zsh
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/cp
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/docker
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/git
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/tmux
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/z
 
     # Other bundles
-    antibody bundle zsh-users/zsh-autosuggestions
+    antidote bundle zsh-users/zsh-autosuggestions
 
     # This needs to be the last bundle.
-    antibody bundle zsh-users/zsh-syntax-highlighting
+    antidote bundle zsh-users/zsh-syntax-highlighting
 
     # Load the theme.
-    antibody bundle romkatv/powerlevel10k
+    antidote bundle romkatv/powerlevel10k
 
 # }}}
 
@@ -50,4 +53,5 @@ export PATH=$HOME/.toolbox/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
