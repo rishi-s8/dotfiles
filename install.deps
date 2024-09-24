@@ -139,7 +139,7 @@ else
   chmod a+x autogen.sh
   chmod a+x configure.sh
   ./autogen.sh
-  ./configure --prefix=/where/you/want # defaults to /usr/local 
+  ./configure # defaults to /usr/local 
   make
-  make install
+  sudo make install
 fi
