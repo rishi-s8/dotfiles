@@ -110,8 +110,15 @@ fi
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   cargo install exa &>/dev/null
 else
-  sudo apt-get update &>/dev/null
-  sudo apt-get install -y exa &>/dev/null
+  mkdir -p exa_folder
+  cd exa_folder
+  wget --content-disposition -O exa.zip https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip
+  unzip exa.zip && rm -rf exa.zip
+  chmod a+rwx completions/exa.zsh
+  chmod a+x bin/exa
+  sudo cp bin/exa /usr/local/bin
+  sudo cp completions/exa.zsh /usr/local/share/zsh/site-functions
+  cd .. && rm -rf exa_folder
 fi
 
 
