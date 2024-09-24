@@ -161,3 +161,4 @@ EOF
 }
 
 export KUBECONFIG=$HOME/rcp-kubeconfig
+alias runai="$HOME/runai"
