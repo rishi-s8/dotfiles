@@ -14,6 +14,8 @@ Install ZSH and switch the default shell.
 
 Next Install Nerd-Font Complete, and Switch the font in iTerm2.
 
+Install unzip,  sudo apt install autoconf automake libtool pkg-config
+
 To setup everything, just run `./install`.
 
 The repo currently only works on Mac Osx using `brew` and Linux using `apt` or `yum`.
