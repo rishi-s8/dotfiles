@@ -1,5 +1,3 @@
-source ~/.antidote/antidote.zsh
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -10,34 +8,19 @@ fi
 # Plugins {{{
 # ==============================================================================
 
-    # Load the Antibody plugin manager for zsh.
-    source <(antidote init)
-
-    # Setup required env var for oh-my-zsh plugins
-    # export ZSH="$(antidote home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-
-    antidote bundle robbyrussell/oh-my-zsh
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/cp
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/docker
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/git
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/tmux
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/tmuxinator
-    antidote bundle robbyrussell/oh-my-zsh path:plugins/z
-
-    # Other bundles
-    antidote bundle zsh-users/zsh-autosuggestions
-
-    # This needs to be the last bundle.
-    antidote bundle zsh-users/zsh-syntax-highlighting
-
-    # Load the theme.
-    antidote bundle romkatv/powerlevel10k
+    # Plugins are declared in zsh_plugins.txt and compiled once into a static
+    # zsh_plugins.zsh. Regenerating only when the list changes keeps startup fast.
+    zsh_plugins=~/.zsh_plugins
+    if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+      source ~/.antidote/antidote.zsh
+      antidote bundle <${zsh_plugins}.txt >|${zsh_plugins}.zsh
+    fi
+    source ${zsh_plugins}.zsh
+    unset zsh_plugins
 
 # }}}
 
 source ~/.zshrc_alias
-source ~/.zshenv
 
 # Add machine specific settings in separate file.
 if [[ -e ~/.zsh_local ]]; then
@@ -46,11 +29,8 @@ fi
 
 export PATH=$HOME/.toolbox/bin:$PATH
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fzf, nvm and p10k are already loaded by ~/.zshenv, which zsh sources before
+# this file. Loading them again here just doubles startup cost.
 
 
 # BEGIN Agency MANAGED BLOCK

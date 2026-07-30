@@ -27,8 +27,11 @@ fi
 
 echo "Found ${PKG_MANAGER} as package manager."
 
-# Install NodeJS
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash &>/dev/null
+# Install NodeJS.
+# PROFILE=/dev/null stops the nvm installer from appending its own loader block
+# to ~/.zshrc. That file is a symlink into this repo and already loads nvm via
+# zshenv, so letting the installer write there duplicates the (slow) nvm init.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | PROFILE=/dev/null bash &>/dev/null
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &>/dev/null
 nvm install 20.6.0 &>/dev/null
@@ -50,7 +53,12 @@ fi
 sudo chown $(id -u):$(id -g) /opt/local/bin
 
 # Antidote plugin manager for shell
-git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
+if [[ -d ~/.antidote/.git ]]; then
+  git -C ~/.antidote pull --ff-only
+else
+  rm -rf ~/.antidote
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
+fi
 
 # # Delete existing antidote binary/symbolic link
 # sudo rm -rf ~/.antidote
@@ -59,31 +67,31 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
 # sudo ln -s .antidote ~/.antidote
 
 # Install tmux
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  brew install tmux &>/dev/null
-else
-  git clone https://github.com/tmux/tmux.git tmux-build &>/dev/null
-  cd tmux-build
-  git checkout tags/${TMUX_VERSION} &>/dev/null
-  sh autogen.sh &>/dev/null
-  ./configure &>/dev/null && make -j8 &>/dev/null
-  sudo make install &>/dev/null
-  cd .. && rm -rf tmux-build
-fi
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   brew install tmux &>/dev/null
+# else
+#   git clone https://github.com/tmux/tmux.git tmux-build &>/dev/null
+#   cd tmux-build
+#   git checkout tags/${TMUX_VERSION} &>/dev/null
+#   sh autogen.sh &>/dev/null
+#   ./configure &>/dev/null && make -j8 &>/dev/null
+#   sudo make install &>/dev/null
+#   cd .. && rm -rf tmux-build
+# fi
 
 # Install cmake
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  brew install cmake &>/dev/null
-else
-  wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz &>/dev/null
-  tar xvf cmake-${CMAKE_VERSION}.tar.gz &>/dev/null
-  rm -rf cmake-${CMAKE_VERSION}.tar.gz
-  cd cmake-${CMAKE_VERSION}
-  ./bootstrap --parallel=8 &>/dev/null
-  make -j8 &>/dev/null
-  sudo make install &>/dev/null
-  cd .. && rm -rf cmake-${CMAKE_VERSION}
-fi
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   brew install cmake &>/dev/null
+# else
+#   wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz &>/dev/null
+#   tar xvf cmake-${CMAKE_VERSION}.tar.gz &>/dev/null
+#   rm -rf cmake-${CMAKE_VERSION}.tar.gz
+#   cd cmake-${CMAKE_VERSION}
+#   ./bootstrap --parallel=8 &>/dev/null
+#   make -j8 &>/dev/null
+#   sudo make install &>/dev/null
+#   cd .. && rm -rf cmake-${CMAKE_VERSION}
+# fi
 
 # # Install neovim
 # if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -141,6 +149,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   brew tap universal-ctags/universal-ctags &>/dev/null
   brew install --HEAD universal-ctags/universal-ctags/universal-ctags &>/dev/null
 else
+  rm -rf ctags
   git clone https://github.com/universal-ctags/ctags.git
   cd ctags
   chmod a+x autogen.sh
@@ -149,4 +158,5 @@ else
   ./configure # defaults to /usr/local 
   make
   sudo make install
+  cd .. && rm -rf ctags
 fi

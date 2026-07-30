@@ -7,6 +7,7 @@
     ~/.zshenv: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zshrc_alias: zsh/zshrc_alias
+    ~/.zsh_plugins.txt: zsh/zsh_plugins.txt
     # ~/.config/nvim:
     #   create: true
     #   relink: true
@@ -23,6 +24,10 @@
       stdin: true
       stderr: true
       description: "Installing necessary dependencies"
+    -
+      command: ./zsh/compile-plugins
+      stderr: true
+      description: "Pre-compiling zsh plugins"
     # - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
 
 - create:
